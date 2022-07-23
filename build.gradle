@@ -1,0 +1,112 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.1'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.welercare'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '8'
+
+repositories {
+
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.kafka:spring-kafka'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	/*// https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
+	implementation group: 'org.apache.kafka', name: 'kafka-clients', version: '3.2.0'
+
+	// https://mvnrepository.com/artifact/org.apache.kafka/kafka-streams
+	implementation group: 'org.apache.kafka', name: 'kafka-streams', version: '3.2.0'*/
+
+
+
+	// https://mvnrepository.com/artifact/org.apache.flink/flink-core
+	compileOnly group: 'org.apache.flink', name: 'flink-core', version: '1.14.5'
+
+	// https://mvnrepository.com/artifact/org.apache.flink/flink-shaded-guava
+	implementation group: 'org.apache.flink', name: 'flink-shaded-guava', version: '18.0-12.0'
+
+
+	// https://mvnrepository.com/artifact/org.apache.flink/flink-java
+//	implementation group: 'org.apache.flink', name: 'flink-java', version: '1.14.5'
+
+	// https://mvnrepository.com/artifact/org.apache.flink/flink-connector-kafka-0.11
+	implementation group: 'org.apache.flink', name: 'flink-connector-kafka-0.11_2.11', version: '1.11.5'
+
+	// https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java
+//	compileOnly group: 'org.apache.flink', name: 'flink-streaming-java_2.11', version: '1.14.5'
+
+	// https://mvnrepository.com/artifact/org.apache.flink/flink-clients
+	implementation group: 'org.apache.flink', name: 'flink-clients_2.11', version: '1.14.5'
+
+// https://mvnrepository.com/artifact/org.apache.flink/flink-metrics
+//	implementation group: 'org.apache.flink', name: 'flink-metrics', version: '1.14.5', ext: 'pom'
+
+// https://mvnrepository.com/artifact/org.apache.flink/flink-metrics
+//	implementation 'org.apache.flink:flink-metrics:1.14.5'
+
+
+
+//	implementation fileTree (dir: 'D:/Project/DeviceInterface/lib/latest_jar/', include: 'flink-core-1.14.59.jar')
+
+/*	// https://mvnrepository.com/artifact/org.apache.flink/flink-runtime
+	testImplementation group: 'org.apache.flink', name: 'flink-runtime', version: '1.15.1'*/
+//	implementation fileTree(dir: 'D:/Project/DeviceInterface/lib/jar_files/', include: 'flink-runtime_2.10-1.3.3.jar')
+
+
+
+//	implementation 'org.apache.flink:flink-clients_2.11:1.1.4'
+	implementation  fileTree (dir: 'D:/Project/DeviceInterface/lib/latest_jar/', include: '*.jar')
+//	implementation  fileTree (dir: 'D:/Project/DeviceInterface/lib/test/', include: '*.jar')
+
+	// https://mvnrepository.com/artifact/org.apache.flink/flink-connector-kafka
+//	implementation group: 'org.apache.flink', name: 'flink-connector-kafka', version: '1.15.0'
+// https://mvnrepository.com/artifact/org.apache.flink/flink-core
+//	compileOnly group: 'org.apache.flink', name: 'flink-core', version: '1.15.0'
+
+	/*
+	implementation fileTree(dir: 'D:/Project/DeviceInterface/lib/test/', include: 'flink-connector-kafka-1.15.0.jar')
+	implementation fileTree(dir: 'D:/Project/DeviceInterface/lib/test/', include: 'flink-core-1.15.1.jar')
+	implementation fileTree(dir: 'D:/Project/DeviceInterface/lib/test/', include: 'flink-streaming-java_2.10-1.3.3.jar')
+*/
+	// https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java
+//	compileOnly group: 'org.apache.flink', name: 'flink-streaming-java', version: '1.15.1'
+
+	/*implementation fileTree(dir: 'D:/Project/DeviceInterface/lib/jar_files/', include: 'flink-streaming-java_2.10-1.3.3.jar')
+//	implementation fileTree(dir: 'D:/Project/DeviceInterface/lib/jar_files/', include: 'flink-runtime_2.10-1.3.3.jar')
+	implementation fileTree(dir: 'D:/Project/DeviceInterface/lib/jar_files/', include: 'flink-core-1.3.3.jar')
+	implementation fileTree(dir: 'D:/Project/DeviceInterface/lib/jar_files/', include: 'flink-java-1.3.3.jar')
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+configurations.all {
+	exclude module: 'slf4j-reload4j'
+//	exclude module: 'flink-core'
+//	exclude module: 'flink-streaming-java_2.11'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
